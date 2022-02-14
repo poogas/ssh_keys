@@ -1,0 +1,13 @@
+---
+
+- name: Adding pub-key to host
+  hosts: "{{ servers }}"
+  remote_user: "{{ user }}"
+  gather_facts: False
+
+  tasks:
+    - name: Checking of the credentials of the user on selected servers
+      authorized_key:
+        user: "{{ user }}"
+        state: present
+        key: "{{ key }}"

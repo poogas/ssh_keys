@@ -1,0 +1,17 @@
+ssh_key:
+
+  - user: root
+    comment: 'тут можно уточнить, что за ключ, если есть необходимость.'
+    pub_ssh_key: ssh-ed25519 AAAA a.template
+    add_servers:
+      - test
+      - centos
+    del_servers:
+
+  - user: admin
+    comment: 'а можно оставить это поле пустым или вообще без него, если не нужно.'
+    pub_ssh_key: ssh-ed25519 AAAA a.template
+    add_servers:
+      - test
+      - centos
+    del_servers:

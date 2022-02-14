@@ -1,0 +1,5 @@
+[test]
+example                 ansible_host=127.0.0.1
+
+[centos]
+example                 ansible_host=127.0.0.l ansible_python_interpreter=/usr/bin/python3
