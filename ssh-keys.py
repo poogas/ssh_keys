@@ -6,6 +6,7 @@ from yaml import safe_load
 
 
 file_key = '~/.ssh/id_ed25519'
+inventory = '~/ssh_keys/hosts'
 
 user_name = environ['USER']
 user_ip = environ['SSH_CLIENT'].split()[0]
@@ -53,8 +54,11 @@ def play(content, action):
                "user": user, 
                "key": key}
 
-    system(f'ansible-playbook {action}.yml -e "{payload}"')
-    git_push(action)
+    system(f'ansible-playbook -i {inventory} {action}.yml -e "{payload}"')
+    try:
+        git_push(action)
+    except:
+        pass
 
 
 try:
